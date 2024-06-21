@@ -29,8 +29,7 @@
             <td>{{cus.name}}</td>
             <td>{{cus.email}}</td>
             <td>
-              <a [routerLink]="['/customers', cus.id]" class="btn btn-info"><i class="bi bi-eye"></i></a>
-              <a [routerLink]="['/customers', cus.id, 'edit']" class="btn btn-success m-1"><i class="bi bi-pen"></i></a>
+              <a (click)="customerAccounts(cus)" class="btn btn-info m-1"><i class="bi bi-eye"></i></a>
               <a (click)="delete(cus)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
             </td>
 
