@@ -62,7 +62,7 @@
       </div>
     </div>
     <div class="col col-md-6">
-      <div class="card">
+      <div class="card" *ngIf="authService.role.includes('ADMIN')">
         <div class="card-header">
           Operations
         </div>

@@ -30,7 +30,7 @@ export class CustomersComponent implements OnInit{
     let keyword = this.searchFormGroup?.value.keyword;
     this.customers = this.customerService.searchCustomers(keyword).pipe(
       catchError(err => {
-        this.errorMessage = err;
+        this.errorMessage = err.message;
         return throwError(err);
       })
     );
@@ -59,6 +59,6 @@ export class CustomersComponent implements OnInit{
   }
 
   customerAccounts(cus: Customer) {
-    this.router.navigateByUrl('/customer-accounts/' + cus.id, {state: {customer: cus}})
+    this.router.navigateByUrl('/admin/customer-accounts/' + cus.id, {state: {customer: cus}})
   }
 }

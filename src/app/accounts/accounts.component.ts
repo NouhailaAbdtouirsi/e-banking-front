@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {AccountsService} from "../services/accounts.service";
 import {AccountDetails} from "../model/account.model";
 import {catchError, Observable, throwError} from "rxjs";
+import {AuthServiceService} from "../services/auth-service.service";
 
 @Component({
   selector: 'app-accounts',
@@ -17,7 +18,8 @@ export class AccountsComponent implements OnInit {
   operationForm!: FormGroup;
   errorMessage!: string;
   constructor(private fb : FormBuilder,
-              private accountService:AccountsService) {}
+              private accountService:AccountsService,
+              public authService : AuthServiceService) {}
 
   ngOnInit() {
     this.accountForm = this.fb.group({
@@ -97,4 +99,6 @@ export class AccountsComponent implements OnInit {
     }
 
   }
+
+  protected readonly throwError = throwError;
 }
