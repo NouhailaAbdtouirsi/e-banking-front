@@ -1,27 +1,76 @@
-# EbankingFrontend
+# Projet de Banque Digitale
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+Ce projet est une application web pour la gestion des clients et de leurs comptes. Il offre diverses fonctionnalités telles que les opérations CRUD des clients, la visualisation des comptes et des opérations, et l'exécution de transactions financières.
 
-## Development server
+## Technologies Utilisées
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Backend : Spring Boot
+- Frontend : Angular
+- Base de données : MySQL
 
-## Code scaffolding
+## Fonctionnalités
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Authentification et autorisation des utilisateurs
+- Gestion des clients (Créer, Lire, Mettre à jour, Supprimer)
+- Gestion des comptes (Recherche)
+- Opérations sur les comptes (Débit, Crédit, Transfert)
+- Fonctionnalité de recherche
+- Interface utilisateur réactive
+## Diagramme de classe
+<img src="Captures/class%20Diagramm.png" alt="class diag">
 
-## Build
+## Architecture de l'application
+<img src="Captures/arch%20Diagramm.png" alt="arch">
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Backend
 
-## Running unit tests
+Le backend du projet de banque digitale est développé en utilisant le framework Spring Boot. Il fournit les API nécessaires pour la gestion des clients, des comptes et des opérations.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Points de Terminaison API
 
-## Running end-to-end tests
+- `/customers` : méthode GET : Récupère tous les clients.
+- `/searchCustomers` : Recherche les clients par nom ou email.
+- `/customers/{id}` : méthode GET : Récupère un client spécifique par ID.
+- `/customers` : méthode POST : Crée un nouveau client.
+- `/customers/{id}` : méthode PUT : Met à jour un client existant.
+- `/customers/{id}` : méthode DELETE : Supprime un client.
+- `/bank-accounts` : méthode GET : Récupère tous les comptes.
+- `/bank-accounts/{id}` : méthode GET : Récupère un compte spécifique par ID.
+- `bank-accounts/{id}/history` : méthode GET : Récupère l'historique des transactions d'un compte.
+- `/bank-accounts/{id}/account-history` : méthode GET : Récupère l'historique d'un compte avec pagination et taille.
+- `/bank-accounts/{id}/debit` : méthode POST : Débite un compte.
+- `/bank-accounts/{id}/credit` : méthode POST : Crédite un compte.
+- `/bank-accounts/{id}/transfer` : méthode POST : Transfère de l'argent entre des comptes.
+- `/bank-accounts/customer/{customerId}` : méthode GET : Récupère tous les comptes d'un client.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Frontend
 
-## Further help
+Le frontend du projet de banque digitale est développé en utilisant le framework Angular. Il fournit une interface utilisateur intuitive pour interagir avec l'application.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Routes
+
+- `/login` : Page de connexion.
+- `/admin/customers` : Page de la liste des clients.
+- `/admin/new-customer` : Ajouter un client à la liste.
+- `/admin/accounts` : Page de la liste des comptes.
+- `/admin/customer-accounts/:customerId` : Liste des comptes d'un client.
+- `/admin/not-authorized` : Page de non-autorisation.
+
+### Démo
+[![Watch the video](https://github.com/NouhailaAbdtouirsi/ebanking-backend/blob/master/Captures/thumbnail.png)](https://drive.google.com/file/d/1i7ckQ185Xn0ok6xvOA_7v7TOiAjYhfWU/view)
+## Prise en Main
+Pour exécuter le projet de banque digitale localement, suivez ces étapes :
+
+1. Clonez le dépôt du FrontEnd
+2. Clonez le dépôt du Backend dans le lien suivant :https://github.com/NouhailaAbdtouirsi/ebanking-backend
+3. Configurez le backend :
+  - Installez Java et Maven.
+  - Configurez la connexion à la base de données MySQL dans le fichier `application.properties`.
+  - Construisez et exécutez l'application Spring Boot.
+4. Configurez le frontend :
+  - Installez Node.js et npm.
+  - Installez Angular CLI globalement.
+  - Installez les dépendances du projet en utilisant `npm install`.
+  - Configurez le point de terminaison de l'API backend dans le fichier d'environnement.
+  - Construisez et exécutez l'application Angular en utilisant `ng serve`.
+5. Accédez à l'application dans votre navigateur à l'adresse `http://localhost:4200`.
